@@ -35,7 +35,7 @@ object AppModule {
                     })
             }
             install(HttpTimeout) {
-                requestTimeoutMillis = 10000L
+                requestTimeoutMillis = 15000L
             }
             install(Logging) {
                 logger = object : Logger {

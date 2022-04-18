@@ -14,6 +14,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemsIndexed
 import klt.mdy.caching.domain.model.MovieWithIndexVo
 import klt.mdy.caching.presentation.component.*
+import timber.log.Timber
 
 @Composable
 fun MoviesContent(
@@ -52,7 +53,6 @@ fun MoviesContent(
                             item {
                                 RetryView(
                                     message = e.error.localizedMessage ?: "Error",
-                                    modifier = modifier.fillParentMaxSize(),
                                     onClickRetry = { retry() }
                                 )
                             }
@@ -62,7 +62,6 @@ fun MoviesContent(
                             item {
                                 RetryView(
                                     message = e.error.localizedMessage ?: "Error",
-                                    modifier = modifier.fillParentMaxSize(),
                                     onClickRetry = { retry() }
                                 )
                             }

@@ -11,6 +11,7 @@ import klt.mdy.caching.app.common.Constant
 import klt.mdy.caching.app.common.Endpoint
 import klt.mdy.caching.data.model.ResponseDto
 import klt.mdy.caching.domain.model.MovieWithIndexVo
+import timber.log.Timber
 
 class PagingDataSource constructor(
     private val client: HttpClient
@@ -57,7 +58,10 @@ class PagingDataSource constructor(
         } catch (e: ServerResponseException) {
             // 5xx
             LoadResult.Error(e)
-        } catch (e: Exception) {
+        } catch ( e : HttpRequestTimeoutException){
+            LoadResult.Error(e)
+        }
+        catch (e: Exception) {
             LoadResult.Error(e)
         }
     }

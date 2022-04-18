@@ -42,9 +42,7 @@ fun ShimmerView(
 
     Column(
         modifier = modifier
-
             .fillMaxSize()
-            .padding(all = 8.dp)
     ) {
         repeat(50) {
             ShimmerItem(brush = brush)
