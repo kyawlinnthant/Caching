@@ -1,0 +1,23 @@
+CREATE TABLE remoteEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    prevPage TEXT,
+    nextPage TEXT
+);
+
+getRemoteKeyById:
+    SELECT *
+    FROM remoteEntity
+    WHERE id  = :id;
+
+getAllRemoteKey:
+    SELECT *
+    FROM remoteEntity;
+
+insertRemoteKey:
+    INSERT OR REPLACE
+    INTO remoteEntity
+    VALUES(?,?,?);
+
+deleteRemoteKeyById:
+    DELETE FROM remoteEntity
+    WHERE id = :id;

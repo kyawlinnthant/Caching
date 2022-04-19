@@ -13,15 +13,12 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.features.observer.*
 import io.ktor.client.request.*
 import io.ktor.http.*
-import klt.mdy.caching.data.repo.ApiDataSourceImpl
-import klt.mdy.caching.domain.repo.ApiDataSource
-import kotlinx.coroutines.CoroutineDispatcher
 import timber.log.Timber
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
     @Provides
     @Singleton
     fun providesHttpClient(): HttpClient {
@@ -58,17 +55,5 @@ object AppModule {
                 )
             }
         }
-    }
-
-    @Provides
-    @Singleton
-    fun providesApiDataSource(
-        client: HttpClient,
-        @Qualifier.Io io: CoroutineDispatcher,
-    ): ApiDataSource {
-        return ApiDataSourceImpl(
-            client = client,
-            io = io,
-        )
     }
 }

@@ -4,6 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'com.squareup.sqldelight'
 }
 
 android {
@@ -94,4 +95,16 @@ dependencies {
 
     //Coil (Image Uploading)
     implementation 'com.google.accompanist:accompanist-coil:0.12.0'
+
+    //sql delight
+    implementation "com.squareup.sqldelight:android-driver:1.5.2"
+    implementation "com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2"
+    implementation "com.squareup.sqldelight:android-paging-extensions:1.5.3"
+}
+
+//this will create database file
+sqldelight{
+    MovieDatabase{
+        packageName = "klt.mdy.caching"
+    }
 }
