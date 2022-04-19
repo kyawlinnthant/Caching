@@ -1,6 +1,5 @@
 package klt.mdy.caching.data.repo
 
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -29,7 +28,6 @@ import paging.moviedb.MovieEntity
 import paging.moviedb.RemoteEntity
 import javax.inject.Inject
 
-@ExperimentalPagingApi
 class RepositoryImpl @Inject constructor(
     private val client: HttpClient,
     private val movieDb: MovieDatabase,
